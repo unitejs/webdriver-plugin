@@ -1,0 +1,27 @@
+{
+  "name": "unitejs-webdriver-plugin",
+  "version": "0.0.1",
+  "description": "UniteJS WebdriverIO Plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unitejs/webdriver-plugin.git"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "unite",
+    "unitejs",
+    "webdriver"
+  ],
+  "author": "martyn@unitejs.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unitejs/webdriver-plugin/issues"
+  },
+  "homepage": "https://github.com/unitejs/webdriver-plugin#readme",
+  "devDependencies": {
+    "@types/webdriverio": "^4.8.4",
+    "eslint": "^4.11.0",
+    "eslint-plugin-webdriverio": "^1.0.1"
+  }
+}

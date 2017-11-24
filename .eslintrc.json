@@ -1,0 +1,23 @@
+{
+	"parserOptions": {
+		"ecmaVersion": 5,
+		"sourceType": "module"
+	},
+	"extends": [
+		"eslint:recommended"
+	],
+	"env": {
+        "browser": true,
+        "webdriverio/wdio": true
+	},
+	"globals": {
+		"require": true,
+        "exports": true
+	},
+	"rules": {
+	},
+	"plugins": [
+        "webdriverio"
+    ],
+	"settings": {}
+}
