@@ -1,6 +1,6 @@
 {
   "name": "unitejs-webdriver-plugin",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "UniteJS WebdriverIO Plugin",
   "repository": {
     "type": "git",

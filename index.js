@@ -26,35 +26,37 @@ exports = module.exports = function () {
     }
 
     /* Borrowed from here https://github.com/angular/protractor/pull/4392/files */
-    browser.addCommand("customShadowRoot", function (selector, using) {
-        var selectors = selector.split('::sr');
-        if (selectors.length === 0) {
-            return [];
-        }
+    browser.addCommand("customShadowRoot", function (selector, starting) {
+        return browser.execute(function (selector, starting) {
+            var selectors = selector.split('::sr');
+            if (selectors.length === 0) {
+                return [];
+            }
 
-        var shadowDomInUse = (document.head.createShadowRoot || document.head.attachShadow);
-        var getShadowRoot = function (el) {
-            return ((el && shadowDomInUse) ? el.shadowRoot : el);
-        };
-        var findAllMatches = function (selector /*string*/, targets /*array*/, firstTry /*boolean*/) {
-            var scope, i, matches = [];
-            for (i = 0; i < targets.length; ++i) {
-                scope = (firstTry) ? targets[i] : getShadowRoot(targets[i]);
-                if (scope) {
-                    if (selector === '') {
-                        matches.push(scope);
-                    } else {
-                        Array.prototype.push.apply(matches, scope.querySelectorAll(selector));
+            var shadowDomInUse = (document.head.createShadowRoot || document.head.attachShadow);
+            var getShadowRoot = function (el) {
+                return ((el && shadowDomInUse) ? el.shadowRoot : el);
+            };
+            var findAllMatches = function (selector /*string*/, targets /*array*/, firstTry /*boolean*/) {
+                var scope, i, matches = [];
+                for (i = 0; i < targets.length; ++i) {
+                    scope = (firstTry) ? targets[i] : getShadowRoot(targets[i]);
+                    if (scope) {
+                        if (selector === '') {
+                            matches.push(scope);
+                        } else {
+                            Array.prototype.push.apply(matches, scope.querySelectorAll(selector));
+                        }
                     }
                 }
+                return matches;
+            };
+
+            var matches = findAllMatches(selectors.shift().trim(), [starting || document], true);
+            while (selectors.length > 0 && matches.length > 0) {
+                matches = findAllMatches(selectors.shift().trim(), matches, false);
             }
             return matches;
-        };
-
-        var matches = findAllMatches(selectors.shift().trim(), [using || document], true);
-        while (selectors.length > 0 && matches.length > 0) {
-            matches = findAllMatches(selectors.shift().trim(), matches, false);
-        }
-        return matches;
+        }, selector, starting);
     });
 };
