@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+* Added missing customShadowRoot TypeScript definition
+
 ## 1.0.4
 
 * Fixed customShadowRoot
