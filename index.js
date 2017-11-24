@@ -1,7 +1,8 @@
-exports = function () {
+exports = module.exports = function () {
     browser.timeouts("script", 30000);
 
-    var uniteConfig = require("../unite.json");
+    var path = require("path");
+    var uniteConfig = require(path.join(process.cwd(), "../unite.json"));
 
     if (/aurelia/i.test(uniteConfig.applicationFramework)) {
         require("./aurelia-webdriver-plugin");

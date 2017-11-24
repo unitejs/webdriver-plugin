@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+* Updated Aurelia plugin require
+
 ## 1.0.1
 
 * Release
