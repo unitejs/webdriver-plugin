@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/unitejs/webdriver-plugin#readme",
   "devDependencies": {
-    "@types/webdriverio": "^4.8.4",
-    "eslint": "^4.11.0",
-    "eslint-plugin-webdriverio": "^1.0.1"
+    "@types/webdriverio": "4.8.4",
+    "eslint": "4.11.0",
+    "eslint-plugin-webdriverio": "1.0.1"
   }
 }
